@@ -21,7 +21,18 @@ app.get("/",(req,res)=>{
 
 app.get("/register",(req,res)=>{
     console.log("register has been hit")
-    res.send("<h1>the btns working</h1>");
+    res.render("register.ejs",{});
+});
+
+app.get("/login",(req,res)=>{
+    console.log("login route has been hit");
+    res.render("login.ejs",{});
+});
+
+
+app.post("/register",(req,res)=>{
+    //if
+    res.render("index.ejs");
 })
 
 
