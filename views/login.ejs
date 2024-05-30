@@ -25,13 +25,13 @@
 </head>
 <body>
     <div id="box" class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/login" method="post">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="user">
-            <label for="floatingInput">User Name</label>
+            <input type="email" class="form-control" id="floatingInput" placeholder="email" name="email">
+            <label for="floatingInput">Email</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
             <label for="floatingPassword">Password</label>
           </div>
           <div class="checkbox mb-3">
