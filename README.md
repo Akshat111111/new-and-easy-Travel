@@ -43,3 +43,20 @@ for seamless operations and swift retrieval of data whenever necessary, ensuring
 By amalgamating these diverse features, our travel website becomes an outstanding platform for users to indulge their wanderlust,
 explore enticing destinations, and book their dream trips. Ultimately, our aim is to cultivate enthusiastic and delighted customers by
 creating an unforgettable travel experience.
+
+<table border="1" cellpadding="10">
+    <tr>
+        <td rowspan="2">
+            <img src="https://vinyasa-summer-of-code-vsoc.devfolio.co/_next/image?url=https%3A%2F%2Fassets.devfolio.co%2Fhackathons%2F39347ec8c7be4f5ba28169197ce5dbfc%2Fassets%2Fcover%2F19.png&w=1440&q=100" alt="GSSOC Logo" width="400" height="85">
+        </td>
+        <td>
+            <strong>VSOC 2024</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            This project is part of Vinyasa Summer of Code. We warmly welcome contributions from the community to help elevate New and Easy Travel.
+        </td>
+    </tr>
+</table>
+
