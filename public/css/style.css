@@ -1,59 +1,20 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Fonts Family */
-/* font-family: 'Poppins', sans-serif; */
-
-/* variables */
-
 :root {
-  /* color palate */
   --primary-color: #7b61ff;
   --secondary-color: #f6f4ff;
   --footer-color: #f9f9f9;
-
-  /* font size & weight */
   --title-font-size: 3.2rem;
   --small-font-size: 1.3rem;
   --h2-font-weight: 600;
-
-  /* card-gap */
   --card--gap: 3.2rem;
-
-  --conatiner--size: 73%;
+  --container--size: 73%;
+  --container-width: 90%;
+  --container-max-width: 1378px;
 }
 
-/* variable Class */
-.section-title {
-  font-size: var(--title-font-size);
-  margin-bottom: 6.4rem;
-  font-weight: 700;
-  margin-top: 12rem;
-}
-
-.container {
-  max-width: 1378px;
-  margin: auto;
-}
-
-.section-button {
-  font-size: 1.6rem;
-  margin-top: 4.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  gap: 4px;
-  width: 105px;
-  height: 44px;
-  background: #f6f4ff;
-  border-radius: 12px;
-  cursor: pointer;
-  /* margin-left: -6rem; */
-}
-
-/* reset */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -61,20 +22,21 @@
 }
 
 html {
+  font-size: 62.5%;
   scroll-behavior: smooth;
-  font-size: 10px;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
   line-height: 3.2rem;
   overflow-x: hidden;
 }
 
-ul,
-li {
+ul, li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
   color: white;
@@ -84,18 +46,45 @@ img {
   object-fit: cover;
 }
 
-/* main */
+.container {
+  width: var(--container-width);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
 
+.section-title {
+  font-size: var(--title-font-size);
+  margin-bottom: 6.4rem;
+  font-weight: 700;
+  margin-top: 12rem;
+}
+
+.section-button {
+  font-size: 1.6rem;
+  margin-top: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 4px;
+  width: 105px;
+  height: 44px;
+  background: #f6f4ff;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Main styles */
 .main {
   background: url(/Imgs/Showcase\ Cover.png) no-repeat center center/cover;
   min-height: 800px;
   border-radius: 0 0 50px 50px;
 }
 
-/* headEr */
+/* Header */
 .header {
   color: #fff;
-  max-width: var(--conatiner--size);
+  max-width: var(--container--size);
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -105,7 +94,7 @@ img {
   margin-bottom: 160px;
 }
 
-/* NAVIGATIONS */
+/* Navigation */
 .navlists {
   display: flex;
   justify-content: space-between;
@@ -113,15 +102,16 @@ img {
   font-size: 1.4rem;
   font-weight: 300;
 }
+
 .navlists a {
   opacity: 0.7;
 }
+
 .navlists a:hover {
   opacity: 1;
 }
 
-/* USER/LOGIN */
-
+/* User profile */
 .user-profile {
   display: flex;
   justify-content: flex-end;
@@ -138,6 +128,7 @@ img {
   align-items: flex-end;
   font-size: 1.4rem;
 }
+
 .hello {
   opacity: 0.7;
 }
@@ -146,20 +137,24 @@ img {
   width: 48px;
   height: 48px;
 }
+
 .profile-pic img {
   border-radius: 50%;
   width: 100%;
 }
 
-/* showcase CONTENT */
+/* Showcase content */
 .showcase-content {
   text-align: center;
   color: #fff;
   font-size: 25px;
+  padding: 4rem 0;
 }
+
 .showcase-content h1 {
   margin-bottom: 42px;
 }
+
 .showcase-content a {
   text-align: center;
   font-size: 1.8rem;
@@ -180,7 +175,8 @@ img {
 
 .showcase-search {
   width: 60%;
-  margin: auto;
+  max-width: 800px;
+  margin: 184px auto 0;
   display: flex;
   align-items: center;
   background-color: white;
@@ -188,14 +184,11 @@ img {
   padding: 1.5rem 2rem;
   padding-right: 1rem;
   border-radius: 12px;
-  margin-top: 184px;
 }
 
 .filters {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
-  flex-shrink: 10px;
   flex: 10;
   gap: 10rem;
 }
@@ -209,13 +202,16 @@ img {
   border-right: 1px solid rgba(194, 193, 193, 0.1);
   padding-right: 1.5rem;
 }
+
 .filter h4 {
   color: #5b5b5b;
   font-weight: 300;
 }
+
 .filter h2 {
   font-weight: 500;
 }
+
 .search-button-icon {
   display: flex;
   justify-content: center;
@@ -224,16 +220,17 @@ img {
   padding: 1.5rem;
   border-radius: 10px;
 }
+
 .search-button-icon:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-/* destination */
+/* Destinations */
 .destinations-cards {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
   font-size: 1.6rem;
 }
 
@@ -241,6 +238,7 @@ img {
   font-size: 1.6rem;
   font-weight: 500;
 }
+
 .destination-card h6 {
   font-weight: 400;
   font-size: 1.3rem;
@@ -252,7 +250,7 @@ img {
   border-radius: 10px;
 }
 
-/* HOTELS */
+/* Hotels */
 .hotel-restaurants {
   transition: 3s;
 }
@@ -265,9 +263,7 @@ img {
 
 .hotel-card {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: space-between;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 3rem;
   transition: 0.3s;
 }
@@ -276,9 +272,11 @@ img {
   position: relative;
   border-radius: 12px;
 }
+
 .hotel-cards img {
   border-radius: 12px;
 }
+
 .hotel-cards h5 {
   font-weight: 500;
   font-size: 1.6rem;
@@ -309,19 +307,17 @@ img {
   display: block;
 }
 
-/* tour/travel */
-.tours-cards h3 {
-  font-size: 2rem;
-}
+/* Tours */
 .tours-cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 3rem;
 }
 
 .tours-card {
   display: flex;
   gap: 3rem;
-  flex: 1;
+  flex: 1 1 300px;
 }
 
 .tours-card-content {
@@ -336,6 +332,7 @@ img {
   gap: 3rem;
   margin-top: 6rem;
 }
+
 .tours-card-content-icons h6 {
   display: inline-flex;
   justify-content: space-between;
@@ -344,6 +341,7 @@ img {
   font-size: 12px;
   color: #878787;
 }
+
 .tours-card-contents-text p {
   margin-top: 2rem;
 }
@@ -352,22 +350,22 @@ img {
   border-radius: 12px;
 }
 
-/* activities */
-
+/* Activities */
 .activities-cards {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
 }
+
 .activities-cards img {
   border-radius: 12px;
 }
+
 .activities-cards h4 {
   font-size: 1.6rem;
 }
 
-/* about */
-
+/* About */
 #About {
   display: flex;
   justify-content: center;
@@ -375,20 +373,22 @@ img {
   align-items: center;
   gap: 3rem;
 }
+
 #About h2 {
   font-size: var(--title-font-size);
 }
+
 #About p {
   width: 556px;
   font-size: 1.6rem;
   margin-top: 3rem;
 }
+
 #About .section-button {
   width: 130px;
 }
 
-
-/* footer */
+/* Footer */
 footer {
   background: var(--footer-color);
   padding-top: 120px;
@@ -399,12 +399,13 @@ footer {
 .footer-sections {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr 1fr 3fr;
-  /* align-items: center;  */
   justify-content: space-between;
 }
+
 .footer-sections ul {
   margin-top: 2rem;
 }
+
 .footer-section p {
   font-size: 1.3rem;
   width: 354px;
@@ -412,10 +413,12 @@ footer {
   margin-block: 1rem 2rem;
   color: #5b5b5b;
 }
+
 .footer-section a {
   color: #5b5b5b;
   font-size: 1.3rem;
 }
+
 .footer-section h3 {
   font-size: 1.8rem;
 }
@@ -432,12 +435,14 @@ footer {
   flex-direction: column;
   align-items: flex-start;
 }
+
 .footer-section:last-child form {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
 }
+
 .footer-section:last-child label {
   display: flex;
   flex-direction: column;
@@ -460,6 +465,7 @@ footer {
 .footer-section:last-child img {
   margin-right: 1rem;
 }
+
 .form-section {
   display: flex;
   justify-content: center;
@@ -471,6 +477,7 @@ footer {
   padding-right: 3rem;
   border-radius: 12px;
 }
+
 .footer-section:last-child button {
   outline: none;
   border: none;
@@ -483,43 +490,32 @@ footer {
   border-radius: 12px;
   cursor: pointer;
 }
+
 .footer-section:last-child button img {
   margin-right: 0;
 }
 
-/* scrollbar */
-/* width */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #242323;
-  /* display: none; */
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 100px;
-  border: 0.5px solid#242323 ;
+  border: 0.5px solid #242323;
   width: 5px;
-
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
-/* */
-.toggleOn
-{
-  display: none;
-}
-
-.toggleClose
-{
+.toggleOn,
+.toggleClose {
   display: none;
 }
