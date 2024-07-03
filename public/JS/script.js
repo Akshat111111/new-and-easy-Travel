@@ -112,10 +112,10 @@ hotelButton.addEventListener('click', (e) => {
     x.classList.toggle('on');
   });
 
-  if (e.target.innerHTML !== 'less <img src="/Imgs/icons/bleft.png">') {
-    e.target.innerHTML = `less <img src="/Imgs/icons/bleft.png" >`;
+  if (e.target.innerHTML !== 'less <img src="public/Imgs/icons/bleft.png">') {
+    e.target.innerHTML = `less <img src="public/Imgs/icons/bleft.png" >`;
   } else {
-    e.target.innerHTML = `view all <img src="/Imgs/icons/bleft.png" >`;
+    e.target.innerHTML = `view all <img src="public/Imgs/icons/bleft.png" >`;
   }
 });
 
