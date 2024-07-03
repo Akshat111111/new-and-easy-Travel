@@ -1,7 +1,6 @@
 ScrollReveal({
   mobile: false,
-}
-)
+})
 
 ScrollReveal().reveal('.header', {
   delay: 500,
@@ -16,7 +15,6 @@ ScrollReveal().reveal('.showcase-content h1', {
 });
 
 ScrollReveal().reveal('.showcase-content', {
-
   scale: 2,
   duration: 3000,
   delay: 500,
@@ -47,6 +45,7 @@ ScrollReveal().reveal('.section-title', {
   origin: 'left',
   distance: '50px',
 });
+
 ScrollReveal().reveal('.hotel-card , #tours, #activities', {
   duration: 1500,
   origin: 'left',
@@ -59,6 +58,7 @@ ScrollReveal().reveal('.about-content', {
   origin: 'left',
   distance: '50px',
 });
+
 ScrollReveal().reveal('.about-img', {
   reset: true,
   duration: 1500,
@@ -94,14 +94,12 @@ const swiper = new Swiper('.swiper1', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-
   scrollbar: {
     el: '.swiper-scrollbar',
   },
 });
 
-
-// hotel rxpand collapse fun
+// hotel expand collapse function
 const hotelButton = document.querySelector('.hotel-button');
 const hotelCard = document.querySelectorAll('.off');
 const text = hotelButton.innerText;
@@ -119,9 +117,7 @@ hotelButton.addEventListener('click', (e) => {
   }
 });
 
-
-
-// 
+// Mobile menu toggle
 const toogleOn = document.querySelector('.toggleOn');
 const toogleClose = document.querySelector('.toggleClose');
 const navbar = document.querySelector('.navbar');
