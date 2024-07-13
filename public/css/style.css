@@ -86,21 +86,34 @@ img {
   object-fit: cover;
 }
 
+/* Body and HTML setup */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
 
-/* headEr */
+body {
+  padding-top: 80px; /* Adjust based on your header's height */
+}
 
 /* Header */
-
 .header {
   color: #fff;
-  max-width: var(--container--size);
+  width: 100%;
   margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 4.8rem;
-  margin-bottom: 160px;
+  padding: 1rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 /* Navigation */
@@ -108,53 +121,90 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding:0 20px;
-  font-size: 1.4rem;
-  font-weight: 500;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
 .navlists a {
-  opacity: 0.7;
-}
-
-.navlists a:hover {
-  opacity: 1;
-}
-/* Style the navigation links */
-.navlists {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.navlists li a {
   text-decoration: none;
   color: white;
   font-size: 18px;
-  transition: transform 0.3s ease, color 0.3s ease;
+  opacity: 0.7;
+  transition: all 0.3s ease;
   padding: 10px 15px;
   border-radius: 5px;
 }
 
-.navlists li a:hover {
-  color: #00f; /* Change to your preferred hover color */
-  background-color: rgba(255, 255, 255, 0.2); /* Add a subtle background color */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow to make it stand out */
-  transform: scale(1.1); /* Scale up the item */
-  z-index: 1; /* Ensure the hovered item is on top */
+.navlists a:hover {
+  opacity: 1;
+  color: #00f;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+  z-index: 1;
   animation: pop-in-out 0.3s forwards;
 }
+
 @keyframes pop-in-out {
-  0% {
-      transform: scale(1);
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Mobile menu button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  50% {
-      transform: scale(1.3);
+
+  .mobile-menu-btn {
+    display: block;
+    align-self: flex-end;
+    margin-top: -30px;
   }
-  100% {
-      transform: scale(1);
+
+  .navlists {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    display: none;
+  }
+
+  .navlists.show {
+    display: flex;
+  }
+
+  .navlists a {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  body {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1rem 3%;
+  }
+
+  .navlists a {
+    font-size: 16px;
   }
 }
 
