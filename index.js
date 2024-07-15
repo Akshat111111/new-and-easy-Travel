@@ -21,7 +21,14 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 
-
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navList = document.querySelector('.navlists');
+  
+    mobileMenuBtn.addEventListener('click', function() {
+      navList.classList.toggle('show');
+    });
+  });
 
 
 //GET
