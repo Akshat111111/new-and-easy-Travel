@@ -1,0 +1,103 @@
+import React, { useState, useEffect } from 'react';
+import './login.css';
+
+const Login: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    '../public/Imgs/loginimg/img1.jpg',
+    '../public/Imgs/loginimg/img2.jpg',
+    '../public/Imgs/loginimg/img3.jpg',
+    '../public/Imgs/loginimg/img4.jpg',
+    '../public/Imgs/loginimg/imgg5.jpg',
+    '../public/Imgs/loginimg/img6.jpg',
+    '../public/Imgs/loginimg/imgg7.jpg'
+  ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [images.length]);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const username = (event.target as any).username.value;
+    const password = (event.target as any).password.value;
+
+    if (username === 'test' && password === 'test') {
+      window.location.href = 'index.ejs';
+    } else {
+      alert('Invalid credentials. Please try again.');
+    }
+  };
+
+  return (
+    <div className="container">
+      <div className="left-section">
+        <button
+          className="back-button"
+          onClick={() => (window.location.href = '/Index.html')}
+        >
+          <img
+            src="../public/Imgs/loginimg/back_button.png"
+            width="50px"
+            height="50px"
+            alt="Back"
+          />
+        </button>
+        <h1 className="animated-heading">
+          Login<span className="blinking-cursor">|</span>
+        </h1>
+        <p className="description">
+          Welcome to TravelEase! Your gateway to effortless adventures starts
+          here. Log in to access exclusive travel deals, personalized trip
+          recommendations, and seamless booking experiences. Let's make your
+          travel dreams a reality—sign in now and embark on your next journey
+          with ease!
+        </p>
+        <form id="loginForm" className="login-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Username"
+            className="input-field"
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            className="input-field"
+          />
+          <button type="submit" className="submit-button">
+            Login
+          </button>
+        </form>
+        <p className="already-signed-up">
+          Not signed up? <a href="./signup.html">Sign In</a>
+        </p>
+      </div>
+      <div className="right-section">
+        <video controls width="400">
+          <source src="https://www.example.com/video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt=""
+            className="transition-image"
+            style={{ opacity: currentImageIndex === index ? 1 : 0 }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Login;
