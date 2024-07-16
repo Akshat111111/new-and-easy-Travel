@@ -1,103 +1,84 @@
-import React, { useState, useEffect } from 'react';
-import './login.css';
-
-const Login: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [
-    '../public/Imgs/loginimg/img1.jpg',
-    '../public/Imgs/loginimg/img2.jpg',
-    '../public/Imgs/loginimg/img3.jpg',
-    '../public/Imgs/loginimg/img4.jpg',
-    '../public/Imgs/loginimg/imgg5.jpg',
-    '../public/Imgs/loginimg/img6.jpg',
-    '../public/Imgs/loginimg/imgg7.jpg'
-  ];
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(intervalId);
-  }, [images.length]);
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const username = (event.target as any).username.value;
-    const password = (event.target as any).password.value;
-
-    if (username === 'test' && password === 'test') {
-      window.location.href = 'index.ejs';
-    } else {
-      alert('Invalid credentials. Please try again.');
-    }
-  };
-
-  return (
-    <div className="container">
-      <div className="left-section">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../public/css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-section">
         <button
-          className="back-button"
-          onClick={() => (window.location.href = '/Index.html')}
-        >
-          <img
-            src="../public/Imgs/loginimg/back_button.png"
-            width="50px"
-            height="50px"
-            alt="Back"
-          />
-        </button>
-        <h1 className="animated-heading">
-          Login<span className="blinking-cursor">|</span>
+          class="back-button"
+          onclick="window.location.href='/Index.html'"
+        ><img src="../public/Imgs/loginimg/back_button.png" width="50px" height="50px"/></button>
+        <h1 class="animated-heading">
+          Login<span class="blinking-cursor">|</span>
         </h1>
-        <p className="description">
+        <p class="description">
           Welcome to TravelEase! Your gateway to effortless adventures starts
           here. Log in to access exclusive travel deals, personalized trip
           recommendations, and seamless booking experiences. Let's make your
           travel dreams a reality—sign in now and embark on your next journey
           with ease!
         </p>
-        <form id="loginForm" className="login-form" onSubmit={handleSubmit}>
+        <form id="loginForm" class="login-form">
           <input
             type="text"
             id="username"
-            name="username"
             placeholder="Username"
-            className="input-field"
+            class="input-field"
           />
           <input
             type="password"
             id="password"
-            name="password"
             placeholder="Password"
-            className="input-field"
+            class="input-field"
           />
-          <button type="submit" className="submit-button">
-            Login
-          </button>
+          <button type="submit" class="submit-button">Login</button>
         </form>
-        <p className="already-signed-up">
+        <p class="already-signed-up">
           Not signed up? <a href="./signup.html">Sign In</a>
         </p>
       </div>
-      <div className="right-section">
-        <video controls width="400">
-          <source src="https://www.example.com/video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt=""
-            className="transition-image"
-            style={{ opacity: currentImageIndex === index ? 1 : 0 }}
-          />
-        ))}
+      <div class="right-section">
+        <img src="../public/Imgs/login/img1.jpg" alt="" class="transition-image" />
+        <img src="../public/Imgs/login/img2.jpg" alt= "" class="transition-image" />
+        <img src="../public/Imgs/login/img3.jpg" alt="" class="transition-image" />
+        <img src="../public/Imgs/login/img4.jpg" alt="" class="transition-image" />
+        <img src="../public/Imgs/login/imgg5.jpg" alt="" class="transition-image" />
+        <img src="../public/Imgs/login/img6.jpg" alt="" class="transition-image" />
+        <img src="../public/Imgs/login/imgg7.jpg" alt="" class="transition-image" />
       </div>
     </div>
-  );
-};
 
-export default Login;
+    <script>
+      const images = document.querySelectorAll(".transition-image");
+      let currentImageIndex = 0;
+
+      function showNextImage() {
+        images[currentImageIndex].style.opacity = 0;
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].style.opacity = 1;
+      }
+
+      setInterval(showNextImage, 3000);
+
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Replace this with actual validation logic
+        if (username === 'test' && password === 'test') {
+          window.location.href = 'index.ejs';
+        } else {
+          alert('Invalid credentials. Please try again.');
+        }
+      });
+    </script>
+  </body>
+</html>
