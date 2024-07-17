@@ -584,6 +584,17 @@ footer {
   margin-right: 0;
 }
 
+.footer-copyright {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 16x;
+  padding: 20px 0;
+  background: var(--footer-color);
+  color: #797575;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
