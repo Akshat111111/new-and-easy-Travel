@@ -21,14 +21,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navList = document.querySelector('.navlists');
-  
-    mobileMenuBtn.addEventListener('click', function() {
-      navList.classList.toggle('show');
-    });
-  });
+
 
 
 //GET
@@ -55,9 +48,7 @@ app.get("/login",async (req,res)=>{
     }
 });
 
-app.get('/', (req, res) => {
-    res.render('contact');
-});
+
 
 
 //POST
@@ -105,30 +96,6 @@ app.post("/login",async (req,res)=>
     catch(error){
         console.log(error.message);
     }
-});
-
-app.post('/submit-contact-form', (req, res) => {
-    const { name, email, message } = req.body;
-
-    // Validate form data
-    if (name.length < 3) {
-        return res.status(400).send('Your name should be at least 3 characters long.');
-    }
-    if (!(email.includes('.') && email.includes('@'))) {
-        return res.status(400).send('Please enter a valid email address.');
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        return res.status(400).send('Please enter a valid email address.');
-    }
-    if (message.length < 15) {
-        return res.status(400).send('Please write a longer message.');
-    }
-
-    // Process the form data (e.g., save to database, send email)
-    console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
-
-    // Send a success response
-    res.send('Thank you! I will get back to you as soon as possible.');
 });
 
 app.listen(port,()=>console.log("The server has started at port number: "+port));
