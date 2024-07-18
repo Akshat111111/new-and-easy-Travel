@@ -1,0 +1,21 @@
+name: Add comment on opening issue
+run-name: ${{ github.actor }} is learning GitHub Actions
+
+on: 
+    issues: 
+        types: [opened, edited, milestoned]
+
+jobs:
+    add-comment:
+        runs-on: ubuntu-latest
+        permissions: 
+            issues: write
+    
+        steps:
+            - name: Add comment
+              run: gh issue comment "$NUMBER" --body "$BODY"
+              env: 
+                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                GH_REPO: ${{ github.repository }}
+                NUMBER: ${{ github.event.issue.number }}
+                BODY: Congratulations ${{ github.event.issue.user.login }}, for opening this issue, our maintainers will review it shortly. Thank you for your contribution! ✨

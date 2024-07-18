@@ -1,0 +1,25 @@
+name: Comment on opening pull request
+run-name: ${{ github.actor }} is learning GitHub Actions
+
+on:
+    pull_request: 
+        types: [opened, reopened]
+        
+jobs:
+    write-comment: 
+        runs-on: ubuntu-latest
+        steps:  
+        - name: Add comment
+          uses: actions/github-script@v6
+          with: 
+            script: | 
+                github.rest.issues.createComment(
+                {
+                    issue_number: context.issue.number,
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    body: '👍 Thank you for raising the pull request! Our moderators will review it shortly.'
+                })
+
+    
+
